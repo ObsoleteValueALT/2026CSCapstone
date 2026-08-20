@@ -15,17 +15,124 @@
 
         h1 {
             font-family: 'Roboto', serif;
-            
+            font-weight: bold;
             color: #FFFFFF; 
+            
         }
 
         body {
             background-color: #000000;
         }
+
+        .dr_btn {
+            background-color: #000000;
+            color: #FFFFFF;
+            font-family: 'Roboto', serif;
+            font-size: 25px;
+            padding: 12px;
+            border: none;
+            margin-left: 25%;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: flex;
+            font-weight: bold;
+          }
+
+          .dr_btn:hover {
+            color: #FFFF00;
+          }
+
+
+        .glow {
+            color: #fff;
+            text-align: center;
+            -webkit-animation: glow 1s ease-in-out infinite alternate;
+            -moz-animation: glow 1s ease-in-out infinite alternate;
+            animation: glow 2s ease-in-out infinite alternate;
+            }
+
+        @-webkit-keyframes glow {
+        from {
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffffff3c, 0 0 40px #ffffff3c, 0 0 50px #ffffff3c, 0 0 60px #ffffff3c, 0 0 70px #ffffff3c;
+        }
+        to {
+            text-shadow: 0 0 20px #fff, 0 0 30px #ffffff, 0 0 40px #ffffff74, 0 0 50px #ffffff74, 0 0 60px #ffffff74, 0 0 70px #ffffff74, 0 0 80px #ffffff74;
+        }
+        }
+
+
+        .fade_out {
+            color: #fff;
+            text-align: center;
+            -webkit-animation: fade 5s ease-in-out infinite normal;
+            -moz-animation: fade 5s ease-in-out infinite normal;
+            animation: fade 5s ease-in-out infinite normal;
+            }
+
+        .fade_in {
+            color: #fff;
+            text-align: center;
+            -webkit-animation: fade 5s ease-in-out infinite reverse;
+            -moz-animation: fade 5s ease-in-out infinite reverse;
+            animation: fade 5s ease-in-out infinite reverse;
+            }
+
+        @-webkit-keyframes fade {
+        from {
+            color: #fff;
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffffff3c, 0 0 40px #ffffff3c, 0 0 50px #ffffff3c, 0 0 60px #ffffff3c, 0 0 70px #ffffff3c;
+        }
+        to {
+            color:#000000;
+            text-shadow: 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #000000, 0 0 50px #000000, 0 0 60px #000000, 0 0 70px #000000, 0 0 80px #000000;
+        }
+        }
+
     </style>
     <title>..?</title>
 </head>
 <body>
-    <h1 class="center_text">There's nothing here.</h1>
+    <h1 id="message"class="center_text glow typewriter"><p>IT APPEARS YOU HAVE REACHED</p><p>AN END.</p><br><p>WILL YOU PERSIST?</p></h1>
+    <br>
+    <div class="container">
+      <div class="vertical-center">
+        <button id="back_btn" class="dr_btn" onclick="history.back()">GO BACK</button> <button id="refuse_btn"class="dr_btn" onclick="refuse()">DO NOT</button></b>
+        </div>
+    </div>
+
+    <script>
+        function refuse() {
+            const btn1 = document.getElementById("back_btn");
+            btn1.remove();
+
+            const btn2 = document.getElementById("refuse_btn");
+            btn2.remove();
+
+            const message = document.getElementById("message");
+            message.classList.add("fade_out");
+            setTimeout(replaceMessage, 5000)
+            
+        }
+
+        function replaceMessage() {
+            message.classList.remove("fade_out");
+            message.classList.add("fade_in");
+            message.innerHTML = "THEN, IT WILL REMAIN SO."
+            
+            setTimeout(hideMessage, 5000)
+        }
+
+        function hideMessage() {
+            message.classList.remove("fade_in");
+            message.classList.add("fade_out");
+            setTimeout(removeMessage, 4995)
+            
+        }
+
+        function removeMessage() {
+            message.remove();
+        }
+    </script>
 </body>
 </html>
