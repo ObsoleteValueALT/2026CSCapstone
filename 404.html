@@ -10,6 +10,8 @@
             text-align: center;
             align-items: center;
             justify-content: center;
+            top: 50%;
+            left: 50%;
             height: 100px;
         }
 
@@ -52,7 +54,7 @@
             animation: glow 2s ease-in-out infinite alternate;
             }
 
-        @-webkit-keyframes glow {
+        @keyframes glow {
         from {
             text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffffff3c, 0 0 40px #ffffff3c, 0 0 50px #ffffff3c, 0 0 60px #ffffff3c, 0 0 70px #ffffff3c;
         }
@@ -78,7 +80,7 @@
             animation: fade 5s ease-in-out infinite reverse;
             }
 
-        @-webkit-keyframes fade {
+        @keyframes fade {
         from {
             color: #fff;
             text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffffff3c, 0 0 40px #ffffff3c, 0 0 50px #ffffff3c, 0 0 60px #ffffff3c, 0 0 70px #ffffff3c;
@@ -93,10 +95,10 @@
     <title>..?</title>
 </head>
 <body>
-    <h1 id="message"class="center_text glow typewriter"><p>IT APPEARS YOU HAVE REACHED</p><p>AN END.</p><br><p>WILL YOU PERSIST?</p></h1>
+    <h1 id="message"class="center_text glow">IT APPEARS YOU HAVE REACHED<br>AN END.<br><br>WILL YOU PERSIST?</h1>
     <br>
     <div class="container">
-      <div class="vertical-center">
+      <div class="center_text">
         <button id="back_btn" class="dr_btn" onclick="history.back()">GO BACK</button> <button id="refuse_btn"class="dr_btn" onclick="refuse()">DO NOT</button></b>
         </div>
     </div>
