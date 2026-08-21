@@ -82,11 +82,11 @@
         @keyframes fade {
         from {
             color: #fff;
-            
+            text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffffff3c, 0 0 40px #ffffff3c, 0 0 50px #ffffff3c, 0 0 60px #ffffff3c, 0 0 70px #ffffff3c;
         }
         to {
             color:#000000;
-            
+            text-shadow: 0 0 20px #fff, 0 0 30px #ffffff, 0 0 40px #ffffff74, 0 0 50px #ffffff74, 0 0 60px #ffffff74, 0 0 70px #ffffff74, 0 0 80px #ffffff74;
         }
         }
 
@@ -95,6 +95,7 @@
 </head>
 <body>
     <h1 id="message"class="center_text glow">IT APPEARS YOU HAVE REACHED<br>AN END.<br><br>WILL YOU PERSIST?</h1>
+    <h1 id="message2"class="center_text glow"></h1>
     <br>
     <div class="container">
       <div class="center_text">
@@ -119,7 +120,8 @@
 
         function replaceMessage() {
             message.style.color = "#000000";
-            message.classList.remove("fade_out");
+            message.remove();
+            const message = document.getElementById("message2");
             message.classList.add("fade_in");
             message.innerHTML = "THEN, IT WILL REMAIN SO."
             
