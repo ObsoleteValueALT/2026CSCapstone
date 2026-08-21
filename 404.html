@@ -58,7 +58,7 @@
             text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ffffff3c, 0 0 40px #ffffff3c, 0 0 50px #ffffff3c, 0 0 60px #ffffff3c, 0 0 70px #ffffff3c;
         }
         to {
-            text-shadow: 0 0 20px #fff, 0 0 30px #ffffff, 0 0 40px #ffffff74, 0 0 50px #ffffff74, 0 0 60px #ffffff74, 0 0 70px #ffffff74, 0 0 80px #ffffff74;
+            text-shadow: 0 0 20px #000000;
         }
         }
 
@@ -121,24 +121,24 @@
         function replaceMessage() {
             message.style.color = "#000000";
             message.remove();
-            const message = document.getElementById("message2");
-            message.classList.add("fade_in");
-            message.innerHTML = "THEN, IT WILL REMAIN SO."
+            const message2 = document.getElementById("message2");
+            message2.classList.add("fade_in");
+            message2.innerHTML = "THEN, IT WILL REMAIN SO."
             
             setTimeout(hideMessage, 5000)
         }
 
         function hideMessage() {
-            message.style.color = "#FFFFFF";
-            message.classList.remove("fade_in");
-            message.classList.add("fade_out");
+            message2.style.color = "#FFFFFF";
+            message2.classList.remove("fade_in");
+            message2.classList.add("fade_out");
             setTimeout(removeMessage, 4995)
             
         }
 
         function removeMessage() {
-            message.style.color = "#000000";
-            message.remove();
+            message2.style.color = "#000000";
+            message2.remove();
         }
     </script>
 </body>
