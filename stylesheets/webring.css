@@ -1,6 +1,6 @@
         h1 {
             font-family: 'Roboto', serif;
-            line-height: 0;
+            /*line-height: 0.5;*/
             background-color: #61d0a5;
         }
         h2 {
@@ -22,7 +22,17 @@
             line-height: 1;
             padding-left:5%;
             padding-right:5%;
-            
+            float: left;
+        }
+
+        .container_image {
+            position: absolute;
+            display: flex;
+            align-items: right;
+            margin-top: 5%;
+            padding-left:37.5%;
+            padding-right:5%;
+            float: right;
         }
 
         .container_major {
@@ -87,4 +97,8 @@
         .btn:hover {
             color: #DDDDDD;
             filter: drop-shadow(4px 4px 12px #0000005e);
+        }
+
+        img {
+            filter: drop-shadow(4px 4px 2px #0000004f);
         }

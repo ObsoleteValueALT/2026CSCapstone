@@ -22,6 +22,9 @@
 
                 </strong>
             </pre>
+            <div class="container_image">
+                <img src="images/tree.png" alt="Nothing behind the tree." style="width:100px;height:100px;" onclick="playAudio()">
+            </div>
         <h1 class="center_text">Finnegan McCarty</h1>
         <h1 class="center_text" style="color:Teal">he/him</h1>
         
@@ -49,7 +52,9 @@
         <audio id="audio" controls controlsList="nodownload noplaybackrate">
             <source src="audio/music/nocturne.mp3" type="audio/mpeg">
         </audio>
-
+        <audio id="treeAudio" loop controls style="display:none;">
+            <source src="audio/music/mp3.mp3" type="audio/mpeg">
+        </audio>
         <br>
 
         <hr>
@@ -74,6 +79,17 @@
             audio.src = audioFiles[randAlt]; 
             audio.load(); 
         });
+
+        function playAudio() {
+            const tree = document.getElementById('treeAudio');
+            if (tree.paused) {
+                tree.play();
+            } else {
+                tree.pause();
+            }
+        }
     </script>
+
+    
 </body>
 </html>
