@@ -1,0 +1,55 @@
+.header {
+  overflow: hidden;
+  border-bottom: 5px double #000000;
+  padding: 20px 10px;
+}
+
+.header a {
+  float: left;
+  color: black;
+  padding: 12px;
+  text-decoration: none;
+  font-family: 'Roboto', serif;
+  font-size: 20px;
+  line-height: 20px;
+  border-radius: 5px;
+}
+
+.header a.name {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.header a:hover {
+  background-color: #00000032;
+}
+
+.header a.active {
+  background-color: #000000;
+  color: white;
+}
+
+.header-right {
+  float: right;
+}
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .header_subtitle {
+    float: none;
+    display: none;
+  }
+  .header-right {
+    float: none;
+  }
+}
