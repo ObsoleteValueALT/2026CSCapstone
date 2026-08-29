@@ -9,6 +9,7 @@
         body {
             font-family: 'Roboto', serif;
             background-color: #61d0a5;
+            text-shadow:4px 4px 2px #00000017;
             /*background-image: linear-gradient(to left,#000000,61d0a5, #61d0a5,61d0a5,#5cad8a);
         */
             }
