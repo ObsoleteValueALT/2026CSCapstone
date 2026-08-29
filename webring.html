@@ -23,7 +23,7 @@
                 </strong>
             </pre>
         <h1 class="center_text">Finnegan McCarty</h1>
-        <h1 class="center_text" style="color:goldenrod">he/him</h1>
+        <h1 class="center_text" style="color:Teal">he/him</h1>
         
         <hr>
         <br>
@@ -46,7 +46,7 @@
             <hr>
         <br>
 
-        <audio loop controls controlsList="nodownload noplaybackrate">
+        <audio id="audio" controls controlsList="nodownload noplaybackrate">
             <source src="audio/music/nocturne.mp3" type="audio/mpeg">
         </audio>
 
@@ -60,5 +60,20 @@
    
         <br>
     </div>
+
+    <script>
+        const audioFiles = ["audio/music/nocturne.mp3","audio/music/falling_pink_leaves.mp3","audio/music/to_you,_at_the_end.mp3"];
+
+        const rand = Math.floor(Math.random()*audioFiles.length);
+        const audio = document.getElementById("audio");
+
+        audio.src = audioFiles[rand]; 
+        audio.load(); 
+        audio.addEventListener('ended', function() {
+            randAlt = Math.floor(Math.random()*audioFiles.length);
+            audio.src = audioFiles[randAlt]; 
+            audio.load(); 
+        });
+    </script>
 </body>
 </html>
