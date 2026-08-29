@@ -1,0 +1,89 @@
+        h1 {
+            font-family: 'Roboto', serif;
+            line-height: 0;
+            background-color: #61d0a5;
+        }
+        h2 {
+            font-family: 'Roboto', serif;
+        }
+        body {
+            font-family: 'Roboto', serif;
+            background-color: #61d0a5;
+            /*background-image: linear-gradient(to left,#000000,61d0a5, #61d0a5,61d0a5,#5cad8a);
+        */
+            }
+        .container {
+            position: absolute;
+            display: flex;
+            align-items: left;
+            margin-top: 5%;
+            
+            line-height: 1;
+            padding-left:5%;
+            padding-right:5%;
+            
+        }
+
+        .container_major {
+            display: flex;
+            flex-direction: column;
+            margin-left: 25%;
+            margin-right: 25%;
+        }
+        blockquote {
+            
+            font-family: 'Garamond', serif;
+            margin: 20px;
+            margin-left: 20%;
+            margin-right: 20%;
+            padding: 10px;
+            border: 5px double #000000;
+        }
+        
+        hr {
+            border: none;
+            border-top: 5px double #000000;
+            overflow: visible;
+            text-align: center;
+            width: 100%;
+        }
+
+        hr::after {
+            background: #61d0a5;
+            color: #000000;
+            content: "☙❧";
+            padding: 0 4px;
+            position: relative;
+            top: -15px;
+        }
+
+        audio {
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            filter: sepia(20%) invert(100%) drop-shadow(4px 4px 5px #0000005e);
+            width: 300px;
+            height: 30px;
+        }
+
+        .btn {
+            background-color: #00020E;
+            color: #FFFFFF;
+            font-family: 'Roboto', serif;
+            font-size: 20px;
+            padding: 10px;
+            border: double 5px #00020E;
+            border-color: #00020E;
+            border-radius: 15px;
+            cursor: pointer;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: bold;
+            text-decoration: none;
+            filter: drop-shadow(4px 4px 7px #0000005e);
+        }
+        
+        .btn:hover {
+            color: #DDDDDD;
+            filter: drop-shadow(4px 4px 12px #0000005e);
+        }
