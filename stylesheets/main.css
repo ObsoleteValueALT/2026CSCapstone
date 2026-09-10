@@ -59,6 +59,22 @@
   overflow: hidden;
 }
 
+.dropdown_main {
+  float: left;
+}
+
+.dropdown_main::after {
+    content: "⏷";
+    text-align: right;
+    position: relative;
+}
+
+.dropdown_main:hover::after {
+    content: "⏶";
+    text-align: right;
+    position: relative;
+}
+
 .dropdown_content {
   display: none;
   position: absolute;
