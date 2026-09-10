@@ -94,12 +94,45 @@
 
 .dropdown_content a:hover {
   background-color: #ddd;
+  
+}
+
+.dropdown_content a:hover .dropdown_main::after {
+    content: "⏶";
+    text-align: right;
+    position: relative;
+}
+
+.dropdown_content a:hover .dropdown {
+    background-color: #ddd;
+    line-height: 20px;
+    border-radius: 5px;
 }
 
 .dropdown:hover .dropdown_content {
   display: block;
 }
 
+.dropdown:hover .dropdown_main::after {
+    content: "⏶";
+    text-align: right;
+    position: relative;
+}
+
 .dropdown:active .dropdown_content {
   display: block;
+}
+
+.dropdown:active {
+    background-color: #ddd;
+}
+
+.dropdown:hover {
+    background-color: #ddd;
+}
+
+.dropdown:active .dropdown_main::after {
+    content: "⏶";
+    text-align: right;
+    position: relative;
 }
