@@ -14,7 +14,7 @@
             line-height: 0;
         }
         hr {
-            width: 75%;
+            width: 30%;
         }
     </style>
 </head>
@@ -62,10 +62,10 @@
             <hr>
                 <p>
                 <label for="phone_number">Cell Phone Number:</label>
-                <input name="phone_number" id="phone_number" type="tel" placeholder="(510) 757-4357">
+                <input name="phone_number" id="phone_number" type="tel" placeholder="510-757-4357" pattern="0-9]{3}-[0-9]{3}-[0-9]{4}" required>
                 </p>
             <hr>
-            <div style="line-height: 1em; text-align: left; margin-left:20%; margin-right: 20%;">
+            <div style="line-height: 1em; text-align: left; margin-left:40%; margin-right: 40%;">
                 <h4 style="text-align:center;">Before submitting, please affirm:</h4>
                 <p>
                 <label for="affirm1">All the information provided in this form is legitimate and correct.</label>
@@ -87,7 +87,7 @@
             <hr>
             <p>
             <input name="" id="DEVICE_BUTTON_SUBMIT" type="submit" value="SUBMIT" 
-            style="width: 50%; height: 50%; font-size: 30px; font-weight: 900; outline: 3px solid black; border-radius: 4px;">
+            style="width: 15%; height: 50%; font-size: 30px; font-weight: 900; outline: 3px solid black; border-radius: 4px;">
             </p>
         </form>
     </div>
