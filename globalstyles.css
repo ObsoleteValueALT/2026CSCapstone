@@ -1,11 +1,5 @@
 .center_text {
-    display: flex;
     text-align: center;
-}
-
-.center_text_vertical {
-    position: absolute;
-    transform: translate(-50%,-100%);
 }
 
 .dr_btn {
