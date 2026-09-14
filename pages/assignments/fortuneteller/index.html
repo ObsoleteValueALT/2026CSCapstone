@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+   
+
+    <title>The Ball of Wisdom</title>
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../../../globalstyles.css" />
+  </head>
+  <body class="center_text">
+    <!-- this is the start of content -->
+    <h1 style="font-family:Georgia, 'Times New Roman', Times, serif;">
+      The Ball of Wisdom
+    </h1>
+    <img src="../../../images/meridias_beacon.webp" alt="A new hand touches the Beacon">
+    <br>
+    <hr>
+    <h3>For a fortune to be heard, the Ball requires:</h3>
+    <form name="fortuneTeller" id="fortuneTeller" action="fortune.html">
+      <label for="namefield">A Name:</label>
+      <input type="text" id="namefield" name="name" placeholder="Your name" required>
+      <br>
+      <label for="questionfield">A Question:</label>
+      <input type="text" id="questionfield" name="question" placeholder="A yes or no question">
+      <br>
+      <p>
+      A chosen rune:
+      </p>
+      <label for="rune1">ᛋ</label>
+      <input type="radio" id="rune1" name="runes">
+      <label for="rune2">ᛗ</label>
+      <input type="radio" id="rune2" name="runes">
+      <label for="rune3">ᛚ</label>
+      <input type="radio" id="rune3" name="runes">
+      <br>
+      <input type="submit">
+    </form>
+    <div id="fortune"></div>
+  </body>
+</html>
