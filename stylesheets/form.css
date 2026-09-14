@@ -1,26 +1,4 @@
-/*
+
 input {
-  outline: 3px solid black;
-  border-radius: 4px;
+  border-radius: 3px;
 }
-
-input:placeholder-shown {
-  outline: 3px solid black;
-  border-radius: 4px;
-}
-*/
-/*
-input:valid {
-  border: none;
-  background-color: ivory;
-  outline: 4px solid greenyellow;
-  border-radius: 5px;
-  accent-color: gold;
-}
-
-input:invalid {
-  border: none;
-  outline: 2px dotted red;
-  border-radius: 5px;
-}
-*/
