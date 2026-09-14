@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <base href="https://obsoletevaluealt.github.io/2026CSCapstone/">
+    <link rel="stylesheet" href="globalstyles.css">
+    <link rel="stylesheet" href="stylesheets/main.css">
+    <link rel="stylesheet" href="stylesheets/form.css">
+    <style>
+        body {
+            font-family: 'Roboto';
+            line-height: 0;
+        }
+        hr {
+            width: 75%;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="center_text">Club Sign Up</h1>
+    <h3 class="center_text">Please input your:</h3>
+    <div class="center_text">
+        <form method="get">
+            <div>
+                <label for="username">Name:</label>
+                <input id="username" type="text" name="username" placeholder="ex. John Doe" required>
+                <hr>
+                <label for="useremail">Email:</label>
+                <input id="useremail" type="email" name="useremail" placeholder="Example@email.com" required>
+                </p>
+                <label for="userpass">Password:</label>
+                <input id="userpass" type="password" name="useremail" placeholder="Password">
+                <hr>
+                <p>
+                <label for="rating">Rating of this Website:</label>
+                <br>
+                    <div>
+                        <strong>1</strong>
+                        <input id="rating-1" type="radio" name="rating" value="1">
+                        <input id="rating-2" type="radio" name="rating" value="2">
+                        <input id="rating-3" type="radio" name="rating" checked="true" value="3">
+                        <input id="rating-4" type="radio" name="rating" value="4">
+                        <input id="rating-5" type="radio" name="rating" value="5">
+                        <strong>5</strong>
+                    </div>
+                </p>
+                <hr>
+                </p>
+                <label for="opinion">Opinion on Contemporary Matress Production:</label>
+            </div>
+            <p>
+            <textarea name="opinion" rows="5" cols="35" placeholder="In my personal/medical/professional opinion,"></textarea>
+            </p>
+            <hr>
+                </p>
+                <label for="document">.pdf file of the United States Constituion:</label>
+                <p>
+                <input id="document" name="document" type="file" accept=".pdf" required>
+                </p>
+            <hr>
+                <p>
+                <label for="phone_number">Cell Phone Number:</label>
+                <input name="phone_number" id="phone_number" type="tel" placeholder="(510) 757-4357">
+                </p>
+            <hr>
+            <div style="line-height: 1em; text-align: left; margin-left:20%; margin-right: 20%;">
+                <h4 style="text-align:center;">Before submitting, please affirm:</h4>
+                <p>
+                <label for="affirm1">All the information provided in this form is legitimate and correct.</label>
+                <input name="affirmation" id="affirm1" type="checkbox" required>
+                </p>
+                <p>
+                <label for="affirm2">I am entirely comfortable with providing the information in this form.</label>
+                <input name="affirmation" id="affirm2" type="checkbox" required>
+                </p>
+                <p>
+                <label for="affirm3">I acknowledge the possibility of pain and seizure as a result of submitting this form.</label>
+                <input name="affirmation" id="affirm3" type="checkbox">
+                </p>
+                <p>
+                <label for="affirm4">I accept everything that happens from now on.</label>
+                <input name="affirmation" id="affirm4" type="checkbox" required>
+                </p>
+            </div>
+            <hr>
+            <p>
+            <input name="" id="DEVICE_BUTTON_SUBMIT" type="submit" value="SUBMIT" style="width: 50%; height: 50%; font-size: 30px; font-weight: 900;">
+            </p>
+        </form>
+    </div>
+</body>
+</html>
