@@ -17,3 +17,11 @@ document.getElementById("color").addEventListener("change", function () {
             document.getElementById('blue_overlay').classList.remove('hidden');
         }
 });
+
+document.getElementById("submit").addEventListener("mousedown", function () {
+  const name = document.getElementById("namefield").value;
+
+  if (name === 'Apateónas' || 'Apateonas' || 'deceiver' || 'Dermuskeuos') {
+    window.location.replace("cavity")
+  }
+});
