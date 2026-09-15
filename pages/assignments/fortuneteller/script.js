@@ -1,4 +1,4 @@
-let fortunes = ["Yes", "No","It is decidedly so","Absolutely","Absolutely Not","This question is garbage, I'm not answering that"];
+let fortunes = ["Yes", "No","It Is Decidedly So","With Absolute Certainty","By No Means"];
 
 // Hash function
 function cyrb128(str) {

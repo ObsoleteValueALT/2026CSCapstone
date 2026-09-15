@@ -7,7 +7,32 @@
    
 
     <title>The Ball of Wisdom</title>
-
+    <style>
+      hr {
+        width: 65%;
+      }
+      .overlay {
+        position: absolute;
+        display: block;
+        top: 0;
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 2;
+        cursor: pointer;
+      }
+      .hidden {
+        display: none;
+      }
+      body {
+        font-family: Garamond, 'Times New Roman', Times, serif;
+      }
+      input {
+        font-family: Garamond, 'Times New Roman', Times, serif;
+      }
+      select {
+        font-family: Garamond, 'Times New Roman', Times, serif;
+      }
+    </style>
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="../../../globalstyles.css" />
@@ -17,29 +42,67 @@
     <h1 style="font-family:Georgia, 'Times New Roman', Times, serif;">
       The Ball of Wisdom
     </h1>
-    <img src="../../../images/meridias_beacon.webp" alt="A new hand touches the Beacon">
+    <img src="../../../images/ball.webp" alt="A new hand touches the Beacon">
+    <img class="overlay" style="opacity: 50%; left: 25%; right: 25%; height: 200px; top: 95px;"  src="../../../images/beacon.gif" alt="A new hand touches the Beacon">
+    
+    <div id="red_overlay">
+      <img class="overlay" style="z-index: 5; filter:saturate(125%) drop-shadow(0 0 15px red);; opacity: 75%; left: 25%; right: 25%; top: 90px;" src="../../../images/sanguine_beacon_overlay.png" alt="A new hand touches the Beacon">
+    </div>
+
+    <div id="green_overlay">
+      <img class="overlay" style="z-index: 5; filter:saturate(100%) drop-shadow(0 0 15px green);; opacity: 75%; left: 25%; right: 25%; top: 90px;" src="../../../images/green_beacon_overlay.png" alt="A new hand touches the Beacon">
+    </div> 
+
+    <div id="blue_overlay">
+      <img class="overlay" style="z-index: 5; filter:saturate(75%) drop-shadow(0 0 15px blue);; opacity: 75%; left: 25%; right: 25%; top: 90px;" src="../../../images/blue_beacon_overlay.png" alt="A new hand touches the Beacon">
+    </div> 
+
     <br>
     <hr>
     <h3>For a fortune to be heard, the Ball requires:</h3>
-    <form name="fortuneTeller" id="fortuneTeller" action="fortune.html">
+    <form name="fortuneTeller" id="fortuneTeller" action="fortune">
       <label for="namefield">A Name:</label>
       <input type="text" id="namefield" name="name" placeholder="Your name" required>
       <br>
       <label for="questionfield">A Question:</label>
-      <input type="text" id="questionfield" name="question" placeholder="A yes or no question">
+      <input type="text" id="questionfield" name="question" placeholder="A yes or no question" required>
       <br>
-      <p>
-      A chosen rune:
-      </p>
+      <hr style="width: 25%;">
+      A Chosen Rune: 
       <label for="rune1">ᛋ</label>
-      <input type="radio" id="rune1" name="runes">
+      <input type="radio" id="rune1" name="runes" required>
       <label for="rune2">ᛗ</label>
-      <input type="radio" id="rune2" name="runes">
+      <input type="radio" id="rune2" name="runes" required>
       <label for="rune3">ᛚ</label>
-      <input type="radio" id="rune3" name="runes">
+      <input type="radio" id="rune3" name="runes" required>
       <br>
-      <input type="submit">
+      <label for="color">A Cardinal Shade:</label>
+      <select name="color" id="color" required>
+        <option value="" selected hidden>Inscriendum</option>
+        <option style="color: rgb(95, 15, 15)" value="red">Rubeus</option>
+        <option style="color: rgb(15, 85, 15)" value="green">Viridis</option>
+        <option style="color: rgb(15, 15, 95)" value="blue">Caeruleum</option>
+      </select>
+      <br>
+      <hr>
+      <h3>In good faith, you may also provide:</h3>
+      <label for="essayfield">An Insight into your Hopes:</label>
+      <br>
+      <textarea name="essayfield" id="essayfield" cols="35%" rows="5"></textarea>
+      <br>
+      <hr style="width: 25%;">
+      <label for="number">A Number, For Luck:</label>
+      <input class="center_text" style="width: 10%;" type="number" id="number" name="number" placeholder="#">
+      <br>
+      <label for="file">An Offering:</label>
+      <input type="file" id="file" name="file">
+      <br>
+      <hr>
+      <input style="width: 35%; font-size: x-large; font-weight:bold;" type="submit" value="Hear Fortune">
+      <br>
     </form>
     <div id="fortune"></div>
+    
+    <script src="ball_decor.js" defer></script>
   </body>
 </html>
