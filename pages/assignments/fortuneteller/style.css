@@ -51,3 +51,6 @@ input {
 select {
   font-family: Garamond, 'Times New Roman', Times, serif;
 }
+.invert {
+  filter: invert(100%);
+}

@@ -24,6 +24,7 @@ document.getElementById("rune1").addEventListener("click", function () {
       const selected = this.value;
       
       if (selected) {
+        document.getElementById('secondary_overlay').classList.remove('invert');
         document.getElementById('secondary_overlay').classList.remove('hidden');
         document.getElementById('secondary_overlay').src = "../../../images/soul.gif"
       }
@@ -36,6 +37,7 @@ document.getElementById("rune2").addEventListener("click", function () {
       const selected = this.value;
       
       if (selected) {
+        document.getElementById('secondary_overlay').classList.remove('invert');
         document.getElementById('secondary_overlay').classList.remove('hidden');
         document.getElementById('secondary_overlay').src = "../../../images/ripple.gif"
       }
@@ -48,12 +50,15 @@ document.getElementById("rune3").addEventListener("click", function () {
       const selected = this.value;
       
       if (selected) {
-        document.getElementById('secondary_overlay').classList.add('hidden');
-        //document.getElementById('secondary_overlay').classList.remove('hidden');
-        document.getElementById('secondary_overlay').src = "../../../images/placeholder.png"
+        //document.getElementById('secondary_overlay').classList.add('hidden');
+        document.getElementById('secondary_overlay').src = "../../../images/soul.gif"
+        document.getElementById('secondary_overlay').classList.remove('hidden');
+        document.getElementById('secondary_overlay').classList.add('invert');
+        //document.getElementById('secondary_overlay').src = "../../../images/placeholder.png"
       }
       else {
         document.getElementById('secondary_overlay').classList.add('hidden');
+        document.getElementById('secondary_overlay').classList.remove('invert');
       }
 });
 
