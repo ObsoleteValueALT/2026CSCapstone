@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mystery Game</title>
+    <style>
+        body {
+            font-family: "Roboto";
+        }
+
+        input[type="button"] {
+            font-family: "Roboto"; font-size: large ; background-color: white; color: black; border-color: black; border-style: solid; border-radius: 4px; padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <header style="font-size: x-large;">
+        <div>
+            HP:
+            100
+            / 100
+        </div>
+        <div>
+            O₂:
+            15 
+            / 15
+        </div>
+    </header>
+
+    <nav style="font-size: x-large; text-align: right; transform: translateY(-2em);">
+        <a href="#">PAUSE</a>
+    </nav>
+    <br>
+    <div id="chara_sprite" style="line-height: 8em; border-color: black; border-style: solid; margin: auto; margin-left: 10%; margin-right: 10%">
+        <br>
+        <p style="text-align: center;">PLACEHOLDER BACKGROUND IMAGE</p>
+        
+        <br>
+    </div>
+    <br>
+
+    <div id="choices" style="text-align: center; ">
+        <input id="choice1" type="button" value="Go to ?">
+        <input id="choice2" type="button" value="Go to ?">
+        <input id="choice3" style="display:none" type="button" value="Pick up ?">
+        <input id="choice4" style="display:none" type="button" value="Pick up ?">
+    </div>
+
+    <br>
+
+    <footer style="margin-left: 10%;">
+        <img id="chara_sprite" style="border-color: black; border-style: solid; margin: auto;" src="../../../images/placeholder/placeholder.png" alt="" width="120px" height="160px">
+    
+        <img style="padding: 10px" src="../../../images/placeholder/placeholder_item.png" alt="Item" width="120px" height="120px">
+        <img style="padding: 10px" src="../../../images/placeholder/placeholder_sel_item.png" alt="Item" width="120px" height="120px">
+        <img style="padding: 10px" src="../../../images/placeholder/placeholder_no_item.png" alt="Item" width="120px" height="120px">
+        <img style="padding: 10px" src="../../../images/placeholder/placeholder_no_item.png" alt="Item" width="120px" height="120px">
+
+        <section style="padding: 10px; border-color: black; border-style: solid; margin: auto; margin-right: 11%; margin-left: 55%; transform: translateY(-160px);">
+            <span style="font-size: x-large; font-weight: bold;">Inspected Object/Item/Environment</span>
+            <br>
+            <span>Object/Item/Environment Description</span>
+            <span style="line-height: 7em;"><br></span>
+        </section>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+</head>
+<body>
+    <form method="get">
+        <h1>Are you secretly a robot?</h1>
+        <h6>Find out here</h6>
+        <p>Do you prefer</p>
+        <div>
+
+            <!--
+            <label for="food">Normal Human Food</label>
+            <input type="radio" name="preference" id="food">
+            <label for="oil">Oil</label>  
+            <input type="radio" name="preference" id="oil">
+            -->
+
+            <label for="food">Normal Human Food</label>
+            <input type="radio" name="preference" id="food" value="food">  <!--   Fix: Radio tags were missing the value  -->
+            <label for="oil">Oil</label>                                   <!-- attribute and would submit the value "on" -->
+            <input type="radio" name="preference" id="oil" value="oil">    <!--  regardless of choice on form completion -->
+        </div>
+        <p>Opinion on normal human activities, such as sleep?</p>
+        <input type="text" name="opinion" id="opinion" placeholder="Type your opinion here">
+        <br>
+        <input type="submit">
+    </form>
+</body>
+</html>
