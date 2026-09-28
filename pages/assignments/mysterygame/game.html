@@ -2,68 +2,83 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <title>Mystery Game</title>
-    <style>
-        body {
-            font-family: "Roboto";
-        }
-
-        input[type="button"] {
-            font-family: "Roboto"; font-size: large ; background-color: white; color: black; border-color: black; border-style: solid; border-radius: 4px; padding: 10px;
-        }
-
-    </style>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header style="font-size: x-large;">
-        <div>
-            HP:
-            100
-            / 100
+    <header>
+        <a href="" id="health" style="text-decoration: none; color:black;">HP: 100 / 100</a>
+        <div class="header-right ">
+            <a class="link" href="../../../home">Home</a>
         </div>
-        <div>
-            O₂:
-            15 
-            / 15
-        </div>
+        <br>
+        <a href="" id="oxygen" style="text-decoration: none; color:black;">O₂: 100 / 100</a>
+        
     </header>
 
-    <nav style="font-size: x-large; text-align: right; transform: translateY(-2em);">
-        <a href="#">PAUSE</a>
-    </nav>
-    <br>
-    <div id="chara_sprite" style="line-height: 8em; border-color: black; border-style: solid; margin: auto; margin-left: 10%; margin-right: 10%">
-        <br>
-        <p style="text-align: center;">PLACEHOLDER BACKGROUND IMAGE</p>
-        
-        <br>
-    </div>
     <br>
 
-    <div id="choices" style="text-align: center; ">
-        <input id="choice1" type="button" value="Go to ?">
-        <input id="choice2" type="button" value="Go to ?">
-        <input id="choice3" style="display:none" type="button" value="Pick up ?">
-        <input id="choice4" style="display:none" type="button" value="Pick up ?">
-    </div>
-
-    <br>
-
-    <footer style="margin-left: 10%;">
-        <img id="chara_sprite" style="border-color: black; border-style: solid; margin: auto;" src="../../../images/placeholder/placeholder.png" alt="" width="120px" height="160px">
+    <script src="inspect.mockup.js" defer></script>
     
-        <img style="padding: 10px" src="../../../images/placeholder/placeholder_item.png" alt="Item" width="120px" height="120px">
-        <img style="padding: 10px" src="../../../images/placeholder/placeholder_sel_item.png" alt="Item" width="120px" height="120px">
-        <img style="padding: 10px" src="../../../images/placeholder/placeholder_no_item.png" alt="Item" width="120px" height="120px">
-        <img style="padding: 10px" src="../../../images/placeholder/placeholder_no_item.png" alt="Item" width="120px" height="120px">
+    <div id="background" style="text-align: center; transform: translateY(-5em); image-rendering: pixelated; pointer-events: none;" draggable="false">
+        <img draggable="false" style="border-style: solid; border-width: 4px;" src="../../../images/placeholder/placeholder_room.png" alt="" width="768" height="416">
+        <div id="sel1" style="transform: translate(-322px, -324px); pointer-events:all; image-rendering: pixelated;">
+            <img id="background_select_1" draggable="false" class="overlay selectable" style="border-width: 4px;" src="../../../images/placeholder/placeholder_room_vent.png" alt="" width="auto" height="auto">
+        </div>
+        <div id="sel2" style="transform: translate(-94px, -224px); pointer-events:all; image-rendering: pixelated;">
+            <img id="background_select_2" draggable="false" class="overlay selectable" style="border-width: 4px;" src="../../../images/placeholder/placeholder_room_poster.png" alt="" width="auto" height="auto">
+        </div>
+        <div id="sel3" style="transform: translate(124px, -172px); pointer-events:all; image-rendering: pixelated;">
+            <img id="background_select_3" draggable="false" class="overlay selectable" style="border-width: 4px;" src="../../../images/placeholder/placeholder_room_door.png" alt="" width="auto" height="auto">
+        </div>
+        <div id="sel4" style="transform: translate(332px, -236px); pointer-events:all; image-rendering: pixelated;">
+            <img id="background_select_4" draggable="false" class="overlay selectable" style="border-width: 4px;" src="../../../images/placeholder/placeholder_room_window.png" alt="" width="auto" height="auto">
+        </div>
+    </div>
 
-        <section style="padding: 10px; border-color: black; border-style: solid; margin: auto; margin-right: 11%; margin-left: 55%; transform: translateY(-160px);">
-            <span style="font-size: x-large; font-weight: bold;">Inspected Object/Item/Environment</span>
-            <br>
-            <span>Object/Item/Environment Description</span>
-            <span style="line-height: 7em;"><br></span>
+    <br>
+
+    <div id="choices" style="text-align: center; transform: translateY(-5em);">
+        <input id="choice1" type="button" value="Action 1">
+        <input id="choice2" type="button" value="Action 2">
+        <input id="choice3" disabled type="button" value="Action 3">
+        <input id="choice4" disabled type="button" value="Action 4">
+    </div>
+
+    <br>
+
+    <footer style="margin-left: 12%; transform: translateY(-5.5em);" draggable="false" >
+        <section id="inventory" class="row">
+            <div class="column">
+                <img draggable="false" id="chara_sprite" style="border-color: black; border-style: solid; border-width: 4px;" src="../../../images/placeholder/placeholder_chara.png" alt="" width="120px" height="160px">
+            </div>
+            <div class="column item_slot">
+                <img id="item1" draggable="false" class="item" src="../../../images/placeholder/placeholder_item.png" alt="Item" style="width:120px"
+                 onmouseover="this.src='../../../images/placeholder/placeholder_hover_item.png'" 
+                onmouseout="this.src='../../../images/placeholder/placeholder_item.png'">
+            </div>
+            <div class="column item_slot">
+                <img id="item2" draggable="false" class="sel_item"src="../../../images/placeholder/placeholder_sel_item.png" alt="Selected Item" style="width:120px">
+            </div>
+            <div class="column item_slot">
+                <img id="item3" draggable="false" class="no_item" src="../../../images/placeholder/placeholder_no_item.png" alt="No Item" style="width:120px"
+                onmouseover="this.src='../../../images/placeholder/placeholder_hover_no_item.png'" 
+                onmouseout="this.src='../../../images/placeholder/placeholder_no_item.png'">
+            </div>
+            <div class="column item_slot">
+                <img id="item4" draggable="false" class="no_item" src="../../../images/placeholder/placeholder_no_item.png" alt="No Item" style="width:120px"
+                onmouseover="this.src='../../../images/placeholder/placeholder_hover_no_item.png'" 
+                onmouseout="this.src='../../../images/placeholder/placeholder_no_item.png'">
+            </div>
         </section>
+
+        <div id="inspect_box" class="inspect_box">
+            <span id="inspect_title"style="font-size: x-large; font-weight: bold;">Inspected Object/Item/Environment</span>
+            <br>
+            
+            <span id="inspect_description">Object/Item/Environment Description</span>
+        </div>
     </footer>
 </body>
 </html>
