@@ -11,8 +11,54 @@ const opt2 = document.getElementById("choice2");
 const opt3 = document.getElementById("choice3");
 const opt4 = document.getElementById("choice4");
 
-document.getElementById("sel1").addEventListener("mouseenter", function () {
+ResetOptions();
 
+var sel1Status;
+var sel2Status;
+var sel3Status;
+var sel4Status;
+
+var health = 100;
+var lastDamageSource;
+
+function ResetOptions() {
+    opt1.value = "   -   "
+    opt2.value = "   -   "
+    opt3.value = "   -   "
+    opt4.value = "   -   "
+    opt1.disabled = true;
+    opt2.disabled = true;
+    opt3.disabled = true;
+    opt4.disabled = true;
+}
+
+function ModifyHealth(add, source) {
+    health += add;
+    document.getElementById("health").innerHTML = "HP: "+ health + " / 100 "
+    lastDamageSource = source;
+
+    if (health <= 0) {
+        Death()
+    }
+}
+
+function Death() {
+    ResetOptions();
+
+    document.getElementById("foreground_inspect").hidden = false;
+    document.getElementById("background_image").style.filter = 'blur(4px)';
+    document.getElementById("sel1").hidden = true;
+    document.getElementById("sel2").hidden = true;
+    document.getElementById("sel3").hidden = true;
+    document.getElementById("sel4").hidden = true;
+
+    document.getElementById("foreground_inspect").src = "../../../images/placeholder/placeholder_room_dead.png";
+
+    inspect_description.innerHTML = "<em>Fruitlessly kicking a brick wall.</em>";
+    inspect_title.innerHTML = "<strong>Cause of Death:</strong>";
+}
+
+document.getElementById("sel1").addEventListener("mouseenter", function () {
     inspect_description.innerHTML = "A mysterious vent. If you had a <strong>certain tool</strong> you could open it.";
     inspect_title.innerHTML = "Air Vent";
     if (inspecting != sel1) {
@@ -56,9 +102,14 @@ document.getElementById("sel1").addEventListener("click", function () {
 //
 
 document.getElementById("sel2").addEventListener("mouseenter", function () {
-
-    inspect_description.innerHTML = "An informational poster. Seems to be attached to the wall with some kind of adhesive implement.";
-    inspect_title.innerHTML = "Poster";
+    if (sel2Status == "inspected") {
+        inspect_description.innerHTML = "An information poster. You recall it reads \"This poster is very important because it details extremely vital content necessary for everyone to understand clearly.\"";
+        inspect_title.innerHTML = "Poster";
+    }
+    else {
+        inspect_description.innerHTML = "An informational poster. Seems to be attached to the wall with some kind of adhesive implement.";
+        inspect_title.innerHTML = "Poster";
+    }
     if (inspecting != sel2) {
         inspect_box.style.backgroundColor = "white";
         inspect_box.style.borderStyle = "solid";
@@ -76,9 +127,7 @@ document.getElementById("sel2").addEventListener("mouseleave", function () {
 });
 document.getElementById("sel2").addEventListener("click", function () {
     if (!inspect_box.classList.contains('inspect_box_inspecting')) {
-        inspect_box.classList.add("inspect_box_inspecting");
-        
-        
+        inspect_box.classList.add("inspect_box_inspecting"); 
     }
     init_title = inspect_title.innerHTML;
     init_description = inspect_description.innerHTML;
@@ -90,7 +139,7 @@ document.getElementById("sel2").addEventListener("click", function () {
     opt1.disabled = false;
     opt2.disabled = false;
     opt2.value = "Remove"
-    opt2.title = "Remove the Poster and add it to your Items."
+    opt2.title = "Remove the Poster from the wall."
     opt3.disabled = true;
     opt4.disabled = true;
     opt3.value = "   -   "
@@ -104,9 +153,14 @@ document.getElementById("sel2").addEventListener("click", function () {
 //
 
 document.getElementById("sel3").addEventListener("mouseenter", function () {
-
-    inspect_description.innerHTML = "A sliding door. As of now, you don't know where it leads.";
-    inspect_title.innerHTML = "Door to <em>???</em>";
+    if (sel3Status == "inspected") {
+        inspect_description.innerHTML = "A sliding door, the other side of which is blocked by a well-masoned brick wall which conveniently prevents you from entering another room.";
+        inspect_title.innerHTML = "Door to <em>Brick Wall</em>";
+    }
+    else {
+        inspect_description.innerHTML = "A sliding door. As of now, you don't know where it leads.";
+        inspect_title.innerHTML = "Door to <em>???</em>";
+    }
     if (inspecting != sel3) {
         inspect_box.style.backgroundColor = "white";
         inspect_box.style.borderStyle = "solid";
@@ -132,8 +186,14 @@ document.getElementById("sel3").addEventListener("click", function () {
     inspect_box.style.backgroundColor = "lightgray";
         inspect_box.style.borderStyle = "ridge";
 
-    opt1.value = "Enter"
-    opt1.title = "Enter ???."
+    if (sel3Status == "inspected") {
+        opt1.value = "Kick"
+        opt1.title = "Fruitlessly kick the brick wall."
+    }
+    else {
+        opt1.value = "Enter"
+        opt1.title = "Enter ???."
+    }
     opt1.disabled = false;
     opt2.disabled = true;
     opt2.value = "   -   "
@@ -150,7 +210,6 @@ document.getElementById("sel3").addEventListener("click", function () {
 //
 
 document.getElementById("sel4").addEventListener("mouseenter", function () {
-
     inspect_description.innerHTML = "Window leading to the outside. In theory, you could walk up to it and look outside.";
     inspect_title.innerHTML = "Window";
     if (inspecting != sel4) {
@@ -188,4 +247,171 @@ document.getElementById("sel4").addEventListener("click", function () {
     opt4.value = "   -   "
 
     inspecting = sel4;
+});
+
+//
+//
+//
+
+document.getElementById("item1").addEventListener("mouseenter", function () {
+    inspect_description.innerHTML = "An item of sorts.";
+    inspect_title.innerHTML = "Item 01";
+    if (inspecting != item1) {
+        inspect_box.style.backgroundColor = "white";
+        inspect_box.style.borderStyle = "solid";
+    }
+});
+document.getElementById("item1").addEventListener("mouseleave", function () {
+    if (inspecting != item1) {
+        inspect_description.innerHTML = init_description;
+        inspect_title.innerHTML = init_title;
+    }
+    if (inspecting != "none") {
+        inspect_box.style.backgroundColor = "lightgray";
+        inspect_box.style.borderStyle = "ridge";
+    }
+});
+document.getElementById("item1").addEventListener("click", function () {
+    if (!inspect_box.classList.contains('inspect_box_inspecting')) {
+        inspect_box.classList.add("inspect_box_inspecting");
+    }
+    init_title = inspect_title.innerHTML;
+    init_description = inspect_description.innerHTML;
+    inspect_box.style.backgroundColor = "lightgray";
+        inspect_box.style.borderStyle = "ridge";
+
+    ResetOptions();
+
+    inspecting = item1;
+});
+
+//
+//
+//
+
+document.getElementById("item2").addEventListener("mouseenter", function () {
+
+    inspect_description.innerHTML = "An item of some variety.";
+    inspect_title.innerHTML = "Item 02";
+    if (inspecting != item2) {
+        inspect_box.style.backgroundColor = "white";
+        inspect_box.style.borderStyle = "solid";
+    }
+});
+document.getElementById("item2").addEventListener("mouseleave", function () {
+    if (inspecting != item2) {
+        inspect_description.innerHTML = init_description;
+        inspect_title.innerHTML = init_title;
+    }
+    if (inspecting != "none") {
+        inspect_box.style.backgroundColor = "lightgray";
+        inspect_box.style.borderStyle = "ridge";
+    }
+});
+document.getElementById("item2").addEventListener("click", function () {
+    if (!inspect_box.classList.contains('inspect_box_inspecting')) {
+        inspect_box.classList.add("inspect_box_inspecting");
+    }
+    init_title = inspect_title.innerHTML;
+    init_description = inspect_description.innerHTML;
+    inspect_box.style.backgroundColor = "lightgray";
+        inspect_box.style.borderStyle = "ridge";
+
+    ResetOptions();
+
+    inspecting = item2;
+});
+
+
+// 
+/*
+
+// ------------- //
+
+*/
+//
+
+opt1.addEventListener("click", function () {
+    if (inspecting == sel2) {
+        document.getElementById("foreground_inspect").hidden = false;
+        document.getElementById("background_image").style.filter = 'blur(4px)';
+        document.getElementById("sel1").hidden = true;
+        document.getElementById("sel2").hidden = true;
+        document.getElementById("sel3").hidden = true;
+        document.getElementById("sel4").hidden = true;
+        ResetOptions()
+
+        inspect_description.innerHTML = "On closer inspection, it reads \"This poster is very important because it details extremely vital content necessary for everyone to understand clearly.\"";
+        inspect_title.innerHTML = "Poster";
+
+        sel2Status = "inspected";
+
+        opt1.disabled = false;
+        opt1.value = "Uninspect";
+        opt1.title = "Continue searching."
+        inspecting = "poster";
+    }
+    else if (inspecting == "poster") {
+        document.getElementById("foreground_inspect").hidden = true;
+        document.getElementById("background_image").style.filter = 'blur(0px)';
+        document.getElementById("sel1").hidden = false;
+        document.getElementById("sel2").hidden = false;
+        document.getElementById("sel3").hidden = false;
+        document.getElementById("sel4").hidden = false;
+        
+        opt1.value = "Inspect"
+        opt1.title = "Inspect the Poster."
+        opt1.disabled = false;
+        opt2.disabled = false;
+        opt2.value = "Remove"
+        opt2.title = "Remove the Poster and add it to your Items."
+        opt3.disabled = true;
+        opt4.disabled = true;
+        opt3.value = "   -   "
+        opt4.value = "   -   "
+
+        inspecting = sel2;
+    }
+    else if (inspecting == sel3) {
+        if (sel3Status != "inspected") {
+            sel3Status = "inspected";
+
+            document.getElementById("background_select_3").src = "../../../images/placeholder/placeholder_room_door_open.png"
+            if (sel2Status == "removed") {
+                document.getElementById("background_image").src = "../../../images/placeholder/placeholder_room_poster_removed_open.png"
+            }
+            else {
+                document.getElementById("background_image").src = "../../../images/placeholder/placeholder_room_open.png"
+            }
+
+
+            inspect_description.innerHTML = "A sliding door, the other side of which is blocked by a well-masoned brick wall which conveniently prevents you from entering another room.";
+            inspect_title.innerHTML = "Door to <em>Brick Wall</em>";
+
+            opt1.value = "Kick"
+            opt1.title = "Kick the wall."
+        }
+        else {
+            inspect_description.innerHTML = "Kicking the brick wall reduced your <strong>Health</strong> by <em>10</em> Points.";
+            inspect_title.innerHTML = "<em>Brick Wall</em>";
+            ModifyHealth(-10);
+        }
+
+    }
+});
+
+opt2.addEventListener("click", function () {
+    if (inspecting == sel2) {
+        sel2Status = "removed";
+        document.getElementById("background_select_2").src = "../../../images/placeholder/placeholder_room_poster_ripped.png"
+        if (sel3Status == "inspected") {
+            document.getElementById("background_image").src = "../../../images/placeholder/placeholder_room_poster_removed_open.png"
+        }
+        else {
+            document.getElementById("background_image").src = "../../../images/placeholder/placeholder_room_poster_removed.png"
+        }
+        document.getElementById("background_select_2").hidden = true;
+        ResetOptions();
+        document.getElementById("foreground_inspect").hidden = true;
+    }
 });

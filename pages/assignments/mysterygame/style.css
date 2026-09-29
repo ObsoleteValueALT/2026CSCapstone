@@ -71,7 +71,7 @@ img {
 }
 
 .selectable {
-    opacity: 0.5;
+    opacity: 0;
     cursor: help;
 }
 
@@ -137,7 +137,7 @@ header {
     border-style: solid; 
     margin: auto; 
     margin-right: 11%; 
-    margin-left: 55%; 
+    margin-left: 56%; 
     transform: translate(-4em, -11em); 
     border-width: 4px;
 }
@@ -150,7 +150,7 @@ header {
     border-style: ridge; 
     margin: auto; 
     margin-right: 11%; 
-    margin-left: 55%; 
+    margin-left: 56%; 
     transform: translate(-4em, -11em); 
     border-width: 6px;
 }
