@@ -54,7 +54,12 @@ function Death() {
 
     document.getElementById("foreground_inspect").src = "../../../images/placeholder/placeholder_room_dead.png";
 
-    inspect_description.innerHTML = "<em>Fruitlessly kicking a brick wall.</em>";
+    if (lastDamageSource = "brick_wall") {
+        inspect_description.innerHTML = "<em>Fruitlessly kicking a brick wall.</em>";
+    }
+    else {
+        inspect_description.innerHTML = "<em>Unknown.</em>";
+    }
     inspect_title.innerHTML = "<strong>Cause of Death:</strong>";
 }
 
@@ -394,7 +399,7 @@ opt1.addEventListener("click", function () {
         else {
             inspect_description.innerHTML = "Kicking the brick wall reduced your <strong>Health</strong> by <em>10</em> Points.";
             inspect_title.innerHTML = "<em>Brick Wall</em>";
-            ModifyHealth(-10);
+            ModifyHealth(-10, "brick_wall");
         }
 
     }
