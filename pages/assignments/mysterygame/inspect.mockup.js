@@ -37,7 +37,7 @@ function ModifyHealth(add, source) {
     document.getElementById("health").innerHTML = "HP: "+ health + " / 100 "
     lastDamageSource = source;
 
-    if (health <= 0) {
+    if (health < 1) {
         Death()
     }
 }
