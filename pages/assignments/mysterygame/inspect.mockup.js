@@ -63,6 +63,13 @@ function Death() {
     inspect_title.innerHTML = "<strong>Cause of Death:</strong>";
 }
 
+function SetItem(slot,src,desc,title) {
+    var item = document.getElementById("item"+slot)
+    item.src = src;
+}
+
+SetItem(1,"../../../images/placeholder/placeholder_item_cheese.png")
+
 document.getElementById("sel1").addEventListener("mouseenter", function () {
     inspect_description.innerHTML = "A mysterious vent. If you had a <strong>certain tool</strong> you could open it.";
     inspect_title.innerHTML = "Air Vent";
@@ -108,7 +115,7 @@ document.getElementById("sel1").addEventListener("click", function () {
 
 document.getElementById("sel2").addEventListener("mouseenter", function () {
     if (sel2Status == "inspected") {
-        inspect_description.innerHTML = "An information poster. You recall it reads \"This poster is very important because it details extremely vital content necessary for everyone to understand clearly.\"";
+        inspect_description.innerHTML = "An informational poster. You recall it reads \"This poster is very important because it details extremely vital content necessary for everyone to understand clearly.\"";
         inspect_title.innerHTML = "Poster";
     }
     else {
@@ -259,8 +266,8 @@ document.getElementById("sel4").addEventListener("click", function () {
 //
 
 document.getElementById("item1").addEventListener("mouseenter", function () {
-    inspect_description.innerHTML = "An item of sorts.";
-    inspect_title.innerHTML = "Item 01";
+    inspect_description.innerHTML = "Large cylinder of goat's cheese with a slice taken out of it.";
+    inspect_title.innerHTML = "Wheel of Cheese";
     if (inspecting != item1) {
         inspect_box.style.backgroundColor = "white";
         inspect_box.style.borderStyle = "solid";
@@ -296,8 +303,8 @@ document.getElementById("item1").addEventListener("click", function () {
 
 document.getElementById("item2").addEventListener("mouseenter", function () {
 
-    inspect_description.innerHTML = "An item of some variety.";
-    inspect_title.innerHTML = "Item 02";
+    inspect_description.innerHTML = "An opened can of brand-name soft drink, slightly flattened.";
+    inspect_title.innerHTML = "Can of Soda";
     if (inspecting != item2) {
         inspect_box.style.backgroundColor = "white";
         inspect_box.style.borderStyle = "solid";
@@ -418,5 +425,13 @@ opt2.addEventListener("click", function () {
         document.getElementById("background_select_2").hidden = true;
         ResetOptions();
         document.getElementById("foreground_inspect").hidden = true;
+
+        inspect_description.innerHTML = "For whatever reason, you removed the Poster from the wall.";
+        inspect_title.innerHTML = "Poster";
+        init_title = inspect_title.innerHTML;
+        init_description = inspect_description.innerHTML;
+        inspect_box.style.backgroundColor = "white";
+        inspect_box.style.borderStyle = "solid";
+        inspecting = "none"
     }
 });
