@@ -21,6 +21,8 @@ var sel4Status;
 var health = 100;
 var lastDamageSource;
 
+var items = ["cheese","flat_soda"]
+
 function ResetOptions() {
     opt1.value = "   -   "
     opt2.value = "   -   "
@@ -331,7 +333,53 @@ document.getElementById("item2").addEventListener("click", function () {
 
     ResetOptions();
 
-    inspecting = item2;
+    inspecting = "item2";
+});
+
+
+//
+//
+//
+
+document.getElementById("item3").addEventListener("mouseenter", function () {
+
+    if (items.at(2) == "poster") {
+        inspect_description.innerHTML = "A poster you removed from the wall. For some reason.";
+        inspect_title.innerHTML = "Poster";
+    }
+    if (inspecting != item3) {
+        inspect_box.style.backgroundColor = "white";
+        inspect_box.style.borderStyle = "solid";
+    }
+});
+document.getElementById("item3").addEventListener("mouseleave", function () {
+    if (inspecting != item3) {
+        inspect_description.innerHTML = init_description;
+        inspect_title.innerHTML = init_title;
+    }
+    if (inspecting != "none") {
+        inspect_box.style.backgroundColor = "lightgray";
+        inspect_box.style.borderStyle = "ridge";
+    }
+});
+document.getElementById("item3").addEventListener("click", function () {
+    if (items.at(2) != null) {
+        if (!inspect_box.classList.contains('inspect_box_inspecting')) {
+            inspect_box.classList.add("inspect_box_inspecting");
+        }
+        init_title = inspect_title.innerHTML;
+        init_description = inspect_description.innerHTML;
+        inspect_box.style.backgroundColor = "lightgray";
+        inspect_box.style.borderStyle = "ridge";
+
+        ResetOptions();
+
+        opt1.value = "Inspect"
+        opt1.title = "Inspect the Poster."
+        opt1.disabled = false;
+
+        inspecting = item3;
+    }
 });
 
 
@@ -344,7 +392,7 @@ document.getElementById("item2").addEventListener("click", function () {
 //
 
 opt1.addEventListener("click", function () {
-    if (inspecting == sel2) {
+    if (inspecting == sel2 || inspecting == item3) {
         document.getElementById("foreground_inspect").hidden = false;
         document.getElementById("background_image").style.filter = 'blur(4px)';
         document.getElementById("sel1").hidden = true;
@@ -374,15 +422,18 @@ opt1.addEventListener("click", function () {
         opt1.value = "Inspect"
         opt1.title = "Inspect the Poster."
         opt1.disabled = false;
-        opt2.disabled = false;
-        opt2.value = "Remove"
-        opt2.title = "Remove the Poster and add it to your Items."
+        
+        if (items.at(2) != "poster") {
+            opt2.disabled = false;
+            opt2.value = "Remove"
+            opt2.title = "Remove the Poster and add it to your Items."
+        }
         opt3.disabled = true;
         opt4.disabled = true;
         opt3.value = "   -   "
         opt4.value = "   -   "
 
-        inspecting = sel2;
+        inspecting = "none";
     }
     else if (inspecting == sel3) {
         if (sel3Status != "inspected") {
@@ -400,15 +451,31 @@ opt1.addEventListener("click", function () {
             inspect_description.innerHTML = "A sliding door, the other side of which is blocked by a well-masoned brick wall which conveniently prevents you from entering another room.";
             inspect_title.innerHTML = "Door to <em>Brick Wall</em>";
 
+            init_title = inspect_title.innerHTML;
+            init_description = inspect_description.innerHTML;
+
             opt1.value = "Kick"
             opt1.title = "Kick the wall."
         }
         else {
             inspect_description.innerHTML = "Kicking the brick wall reduced your <strong>Health</strong> by <em>10</em> Points.";
             inspect_title.innerHTML = "<em>Brick Wall</em>";
+            init_title = inspect_title.innerHTML;
+            init_description = inspect_description.innerHTML;
             ModifyHealth(-10, "brick_wall");
         }
 
+    }
+    else if (inspecting == sel4) {
+        inspect_description.innerHTML = "It's a beautiful day outside. Why are you inside. Why are you here.";
+        inspect_title.innerHTML = "Window to <em>Outside</em>";
+        init_title = inspect_title.innerHTML;
+        init_description = inspect_description.innerHTML;
+    }
+    else if (inspecting == item2) {
+        opt1.disabled = false;
+        opt1.value = "Drink";
+        opt1.title = "Consume the delicious soda."
     }
 });
 
@@ -433,5 +500,8 @@ opt2.addEventListener("click", function () {
         inspect_box.style.backgroundColor = "white";
         inspect_box.style.borderStyle = "solid";
         inspecting = "none"
+
+        items.push("poster");
+        document.getElementById("item" + items.length).src = "../../../images/placeholder/placeholder_room_poster.png";
     }
 });
