@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finnegan McCarty - Webring</title>
-    <link rel="stylesheet" href="globalstyles.css">
-    <link rel="stylesheet" href="stylesheets/webring.css">
+    <link rel="stylesheet" href="../../globalstyles.css">
+    <link rel="stylesheet" href="../../stylesheets/webring.css">
     <base href="https://obsoletevaluealt.github.io/2026CSCapstone/">
 </head>
 <body>
@@ -72,6 +72,7 @@
 
         const rand = Math.floor(Math.random()*audioFiles.length);
         const audio = document.getElementById("audio");
+        const tree = document.getElementById('treeAudio');
 
         audio.src = audioFiles[rand]; 
         audio.load(); 
@@ -81,8 +82,12 @@
             audio.load(); 
         });
 
+        audio.addEventListener('play', function() {
+            tree.pause();
+        });
+
         function playAudio() {
-            const tree = document.getElementById('treeAudio');
+            audio.pause();
             if (tree.paused) {
                 tree.play();
             } else {
