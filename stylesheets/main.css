@@ -93,6 +93,15 @@
   text-align: left;
 }
 
+.dropdown_content title {
+  float: none;
+  padding: 12px 16px 6px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  font-size: 20px
+}
+
 .dropdown_content a:hover {
   background-color: #ddd;
   
