@@ -24,7 +24,7 @@
                 </strong>
             </pre>
             <div class="container_image">
-                <img src="images/tree.png" alt="Nothing behind the tree." style="width:100px;height:100px;" onclick="playAudio()">
+                <img draggable="false" id="Tree." src="images/tree.png" alt="Nothing behind the tree." style="width:100px;height:100px;" onclick="playAudio()">
             </div>
         <h1 class="center_text">Finnegan McCarty</h1>
         <h1 class="center_text" style="color:Teal">he/him</h1>
@@ -68,7 +68,15 @@
     </div>
 
     <script>
-        const audioFiles = ["audio/music/nocturne.mp3","audio/music/falling_pink_leaves.mp3","audio/music/to_you,_at_the_end.mp3"];
+        const audioFiles = [
+            "audio/music/nocturne.mp3",
+            "audio/music/falling_pink_leaves.mp3",
+            "audio/music/to_you,_at_the_end.mp3",
+            "audio/music/wishes_in_the_abyss.mp3",
+            "audio/music/when_youre_gone.mp3",
+            "audio/music/aphelion.mp3",
+            "audio/music/lunation.mp3"
+        ];
 
         const rand = Math.floor(Math.random()*audioFiles.length);
         const audio = document.getElementById("audio");
@@ -80,22 +88,41 @@
             randAlt = Math.floor(Math.random()*audioFiles.length);
             audio.src = audioFiles[randAlt]; 
             audio.load(); 
+            audio.play();
         });
 
         audio.addEventListener('play', function() {
             tree.pause();
+            document.body.style.backgroundColor = "#61d0a5";
+            document.getElementById("Tree.").style.filter = "invert(0%)";
+            document.querySelectorAll('h1,blockquote,a,hr,audio,pre').forEach((elem) => {
+                elem.style.opacity = "1"
+            });
+            document.getElementById("Tree.").style.display = "block"
+            audio.style.display = "block"
         });
 
         function playAudio() {
             audio.pause();
             if (tree.paused) {
                 tree.play();
+                document.body.style.backgroundColor = "black";
+                document.getElementById("Tree.").style.filter = "invert(100%)";
+                document.querySelectorAll('h1,blockquote,a,hr,audio,pre').forEach((elem) => {
+                    elem.style.opacity = "0"
+                });
+                document.getElementById("Tree.").display = "block"
             } else {
                 tree.pause();
+                document.body.style.backgroundColor = "#61d0a5";
+                document.getElementById("Tree.").style.filter = "invert(0%)";
+                document.querySelectorAll('h1,blockquote,a,hr,audio,pre').forEach((elem) => {
+                    elem.style.opacity = "1"
+                });
+                document.getElementById("Tree.").style.display = "block"
+                audio.style.display = "block"
             }
         }
     </script>
-
-    
 </body>
 </html>
