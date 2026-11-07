@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⠀⠀⠀⠀⠀⠀⠀</title>
+</head>
+<body style="background-color: black; color: black;">
+    <p style="cursor:help ;font-size: large; user-select:text; position: absolute;top: 35%;left: 38%; width: 25%; text-align: center;">maybe it deserved its own page, maybe it didn't. it doesn't matter in the end though, music is music, art is art, and we watch and listen and wonder all the same. because that is what it is meant for. life is fleeting and emotion even more, so why not feel and love and laugh, if not for just a moment?</p>
+    <div style="position: absolute;top: 45%;left: 50%;color: black;transform: translate(-50%,-50%);">
+        <audio id="audio" style="filter:invert(100%)" controls controlsList="nodownload noplaybackrate">
+            <source src="../../../audio/music/loyalty.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+    <script>
+        const audio = document.getElementById("audio");
+        audio.addEventListener('play', function() {
+            audio.style.display = "none"
+        });
+        audio.addEventListener('ended', function() {
+            window.location.replace("bootstrapintro.html")
+        });
+    </script>
+</body>
+</html>
